@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+
 	
     [SerializeField] float speed = 0.1F;
     [SerializeField] float padding = 1F;
@@ -21,10 +22,7 @@ public class Player : MonoBehaviour {
 
     void Update () {
 
-        Move();
-
-       
-		
+        Move();		
 	}
 
     void SetUpMoveBounderies() {
@@ -56,5 +54,11 @@ public class Player : MonoBehaviour {
 
         }
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Krock");
+        Destroy(gameObject);
     }
 }
