@@ -1,11 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public EnemiesController enemies;
 
-	
+
+
     [SerializeField] float speed = 0.1F;
     [SerializeField] float padding = 1F;
     [SerializeField] float offset = 1.5f;
@@ -14,8 +17,12 @@ public class Player : MonoBehaviour {
     float yMin;
     float yMax;
 
+    public GameObject player;
+
     private void Start()
     {
+        //Instantiate(player);
+
         SetUpMoveBounderies();
     }
 

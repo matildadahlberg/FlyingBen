@@ -19,12 +19,17 @@ public class MeterController : MonoBehaviour {
 
     void Update () {
 
-        Time.timeScale = speedUp;
-        
-        int speedUpTime = (int)Time.time;
-        counterText.text = speedUpTime + " m";
-		
+        timeCounter();
+
 	}
+
+    public void timeCounter(){
+       // Time.timeScale = speedUp;
+
+        int speedUpTime = (int)(Time.time * speedUp);
+        counterText.text = speedUpTime + " m";
+
+    }
 
 
 
