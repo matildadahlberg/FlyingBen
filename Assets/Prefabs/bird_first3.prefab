@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 50082932393075832}
   m_Layer: 0
   m_Name: bird_first3
-  m_TagString: Untagged
+  m_TagString: EnemiesTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9758fe9b1e8dd4077aba8b292eefb3d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScript: {fileID: 0}
   horizontalSpeed: 0.008
   verticalSpeed: 0.06
   amplitude: 1.06

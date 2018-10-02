@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemiesController : MonoBehaviour
 {
-    public Player playerScript;
-
 
     public float horizontalSpeed;
     public float verticalSpeed;
@@ -31,12 +29,16 @@ public class EnemiesController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    { 
-        Destroy(gameObject);
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
+
+        Debug.Log("Krock");
 
     }
-
 
 
 
