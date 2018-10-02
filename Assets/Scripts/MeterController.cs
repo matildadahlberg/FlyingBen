@@ -6,9 +6,7 @@ using UnityEngine.UI;
 public class MeterController : MonoBehaviour {
     
     public Text counterText;
-    public float speedUp = 2.5f;
-
-
+    public float speedUp = 2.0f;
 
 
     private void Start()
@@ -24,7 +22,6 @@ public class MeterController : MonoBehaviour {
 	}
 
     public void timeCounter(){
-       // Time.timeScale = speedUp;
 
         int speedUpTime = (int)(Time.time * speedUp);
         counterText.text = speedUpTime + " m";

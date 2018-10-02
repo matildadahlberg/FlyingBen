@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Gamemanager : MonoBehaviour
 {
-    public Player playerScript;
+    public Player player;
+    public LifeController lifeController;
 
     public GameObject bird;
     public GameObject balloon;
@@ -101,7 +102,6 @@ public class Gamemanager : MonoBehaviour
 
             yield return new WaitForSeconds(5f);
 
-            Destroy(balloon);
 
             Debug.Log("coroutine ended");
 
@@ -160,35 +160,10 @@ public class Gamemanager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (playerScript.player == gameObject){
-            Destroy(gameObject);
-        }
+        if(player.GetComponent<Collider2D>() == gameObject.GetComponent<Collider2D>())
+        lifeController.RemoveLife();
 
     }
 
-    //void enemies(){
 
-    //    int speedUpTime = (int)Time.time;
-
-    //    if (speedUpTime > 10 )
-    //    {
-    //        StartCoroutine("myCoRotouine");
-    //    }
-    //    if (speedUpTime > 30)
-    //    {
-    //        Instantiate(bird);
-    //    }
-    //    if (speedUpTime > 100)
-    //    {
-    //        Instantiate(plane);
-    //        Destroy(balloon);
-    //    }
-    //    if (speedUpTime > 440)
-    //    {
-    //        Instantiate(spaceship);
-    //        Destroy(bird);
-    //        Destroy(plane);
-    //    }
-
-    //}
 }
