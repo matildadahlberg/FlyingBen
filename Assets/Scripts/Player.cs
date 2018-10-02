@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
     public EnemiesController enemies;
   
 
-    [SerializeField] float speed = 0.1F;
+    [SerializeField] float speed = 10F;
     [SerializeField] float padding = 1F;
     [SerializeField] float offset = 1.5f;
     float xMin;
@@ -28,7 +28,8 @@ public class Player : MonoBehaviour {
 
     void Update () {
 
-        Move();		
+        //Move();
+        MoveWithKeys();
 	}
 
     void SetUpMoveBounderies() {
@@ -66,5 +67,16 @@ public class Player : MonoBehaviour {
     {
         Debug.Log("Krock");
 
+    }
+
+    void MoveWithKeys()
+    {
+
+        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
+        var newX = transform.position.x + deltaX;
+        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * speed;
+        var newY = transform.position.y + deltaY;
+
+        transform.position = new Vector2(newX, newY);
     }
 }

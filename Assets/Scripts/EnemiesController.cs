@@ -16,14 +16,15 @@ public class EnemiesController : MonoBehaviour
     private void Start()
     {
         //StartCoroutine("myCoRotouine");
-       
+
         tempPosition = transform.position;
     }
 
     private void Update()
     {
+
         tempPosition.x += horizontalSpeed;
-        tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude;
+        //tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude;
         transform.position = tempPosition;
 
 
@@ -33,12 +34,8 @@ public class EnemiesController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     { 
         Destroy(gameObject);
-       
+
     }
-
-   
-
-
 
 
 

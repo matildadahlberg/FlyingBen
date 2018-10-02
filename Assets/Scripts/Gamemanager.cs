@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Gamemanager : MonoBehaviour
 {
+
+
+    float randY;
+    Vector2 whereToSpawn;
+    public float spawnRate = 2f;
+    float nextSpawn = 0.0f;
+
     public GameObject bird;
     public GameObject balloon;
     public GameObject plane;
@@ -45,7 +52,7 @@ public class Gamemanager : MonoBehaviour
         {
             balloonStart = EnemyBalloonStart.Start;
         }
-        if (speedUpTime > 30 && birdStart == EnemyBirdStart.NoStart)
+        if (speedUpTime > 50 && birdStart == EnemyBirdStart.NoStart)
         {
             birdStart = EnemyBirdStart.Start;
 
@@ -54,7 +61,7 @@ public class Gamemanager : MonoBehaviour
         {
             planeStart = EnemyPlaneStart.Start;
         }
-        if (speedUpTime > 200 && spaceshipStart == EnemySpaceshipStart.NoStart)
+        if (speedUpTime > 440 && spaceshipStart == EnemySpaceshipStart.NoStart)
         {
             spaceshipStart = EnemySpaceshipStart.Start;
         }
@@ -99,7 +106,18 @@ public class Gamemanager : MonoBehaviour
         Debug.Log("coroutine started");
         while (true)
         {
-            Instantiate(balloon);
+
+
+            if (Time.time > nextSpawn)
+            {
+                nextSpawn = Time.time + spawnRate;
+                randY = Random.Range(-1.70f, 3.80f);
+                whereToSpawn = new Vector2(transform.position.x, randY);
+                Instantiate(balloon, whereToSpawn, Quaternion.identity);
+            }
+
+
+            //Instantiate(balloon);
 
             yield return new WaitForSeconds(5f);
 
@@ -115,7 +133,13 @@ public class Gamemanager : MonoBehaviour
         Debug.Log("coroutine started");
         while (true)
         {
-            Instantiate(bird);
+            if (Time.time > nextSpawn)
+            {
+                nextSpawn = Time.time + spawnRate;
+                randY = Random.Range(-1.70f, 3.80f);
+                whereToSpawn = new Vector2(transform.position.x, randY);
+                Instantiate(bird, whereToSpawn, Quaternion.identity);
+            }
 
             yield return new WaitForSeconds(3f);
 
@@ -130,7 +154,14 @@ public class Gamemanager : MonoBehaviour
         Debug.Log("coroutine started");
         while (true)
         {
-            Instantiate(plane);
+
+            if (Time.time > nextSpawn)
+            {
+                nextSpawn = Time.time + spawnRate;
+                randY = Random.Range(-1.70f, 3.80f);
+                whereToSpawn = new Vector2(transform.position.x, randY);
+                Instantiate(plane, whereToSpawn, Quaternion.identity);
+            }
 
 
             yield return new WaitForSeconds(2f);
@@ -146,8 +177,14 @@ public class Gamemanager : MonoBehaviour
         Debug.Log("coroutine started");
         while (true)
         {
-            Instantiate(spaceship);
 
+            if (Time.time > nextSpawn)
+            {
+                nextSpawn = Time.time + spawnRate;
+                randY = Random.Range(-1.70f, 3.80f);
+                whereToSpawn = new Vector2(transform.position.x, randY);
+                Instantiate(spaceship, whereToSpawn, Quaternion.identity);
+            }
 
             yield return new WaitForSeconds(1f);
 
@@ -159,7 +196,6 @@ public class Gamemanager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
 
         Destroy(gameObject);
 

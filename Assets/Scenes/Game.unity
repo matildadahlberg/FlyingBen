@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98db45d7279324748a818e199d7cc898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.001
+  speed: 0.004
 --- !u!23 &27239552
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -216,7 +216,7 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092b1e34fb1344015b06622031b23948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScript: {fileID: 0}
+  spawnRate: 2
   bird: {fileID: 1083310256988120, guid: 4b70d5b206f784178b7996dbffd66ce6, type: 2}
   balloon: {fileID: 1527844722482410, guid: 9880f40123f4d432fa0de64696e402dc, type: 2}
   plane: {fileID: 1595559520776058, guid: 928dfa2aa0daa4ecaa885fb778a8b1fc, type: 2}
@@ -244,8 +244,8 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 363283415}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8306837, y: -0.13491991, z: -0.30731654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.94, y: 0.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -286,7 +286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.86844176}
   m_AnchorMax: {x: 0.5, y: 0.975}
-  m_AnchoredPosition: {x: 0, y: 34.3}
+  m_AnchoredPosition: {x: 0, y: 34.299927}
   m_SizeDelta: {x: 645, y: -68.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &443220775
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: {fileID: 0}
-  speed: 0.001
+  speed: 10
   padding: 1
   offset: 1.5
   player: {fileID: 1788791097}
