@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Gamemanager : MonoBehaviour
 {
-    public Player player;
-    public LifeController lifeController;
-
     public GameObject bird;
     public GameObject balloon;
     public GameObject plane;
     public GameObject spaceship;
+
+    Coroutine coroutine;
 
 
     EnemyBalloonStart balloonStart = EnemyBalloonStart.NoStart;
@@ -29,34 +28,33 @@ public class Gamemanager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
         Enemies();
-
     }
 
-    void Enemies(){
+    void Enemies()
+    {
         int speedUpTime = (int)(Time.time * 2.5);
 
-        //enemies();
         if (speedUpTime > 10 && balloonStart == EnemyBalloonStart.NoStart)
         {
             balloonStart = EnemyBalloonStart.Start;
         }
-        if (speedUpTime > 20 && birdStart == EnemyBirdStart.NoStart)
+        if (speedUpTime > 30 && birdStart == EnemyBirdStart.NoStart)
         {
             birdStart = EnemyBirdStart.Start;
+
         }
-        if (speedUpTime > 150 && planeStart == EnemyPlaneStart.NoStart)
+        if (speedUpTime > 90 && planeStart == EnemyPlaneStart.NoStart)
         {
             planeStart = EnemyPlaneStart.Start;
         }
-        if (speedUpTime > 440 && spaceshipStart == EnemySpaceshipStart.NoStart)
+        if (speedUpTime > 200 && spaceshipStart == EnemySpaceshipStart.NoStart)
         {
             spaceshipStart = EnemySpaceshipStart.Start;
         }
@@ -66,25 +64,29 @@ public class Gamemanager : MonoBehaviour
 
         if (balloonStart == EnemyBalloonStart.Start)
         {
-            StartCoroutine(StartBalloons());
+            coroutine = StartCoroutine(StartBalloons());
             balloonStart = EnemyBalloonStart.Started;
 
         }
         if (birdStart == EnemyBirdStart.Start)
         {
-            StartCoroutine(StartBirds());
+            StopCoroutine(coroutine);
+            coroutine = StartCoroutine(StartBirds());
             birdStart = EnemyBirdStart.Started;
+
 
         }
         if (planeStart == EnemyPlaneStart.Start)
         {
-            StartCoroutine(StartPlanes());
+            StopCoroutine(coroutine);
+            coroutine = StartCoroutine(StartPlanes());
             planeStart = EnemyPlaneStart.Started;
 
         }
         if (spaceshipStart == EnemySpaceshipStart.Start)
         {
-            StartCoroutine(StartSpaceships());
+            StopCoroutine(coroutine);
+            coroutine = StartCoroutine(StartSpaceships());
             spaceshipStart = EnemySpaceshipStart.Started;
 
         }
@@ -99,9 +101,7 @@ public class Gamemanager : MonoBehaviour
         {
             Instantiate(balloon);
 
-
             yield return new WaitForSeconds(5f);
-
 
             Debug.Log("coroutine ended");
 
@@ -116,7 +116,6 @@ public class Gamemanager : MonoBehaviour
         while (true)
         {
             Instantiate(bird);
-
 
             yield return new WaitForSeconds(3f);
 
@@ -160,10 +159,10 @@ public class Gamemanager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(player.GetComponent<Collider2D>() == gameObject.GetComponent<Collider2D>())
-        lifeController.RemoveLife();
+
+
+        Destroy(gameObject);
 
     }
-
 
 }
