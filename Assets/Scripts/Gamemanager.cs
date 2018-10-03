@@ -10,6 +10,7 @@ public class Gamemanager : MonoBehaviour
     Vector2 whereToSpawn;
     public float spawnRate = 2f;
     float nextSpawn = 0.0f;
+ 
 
     public GameObject bird;
     public GameObject balloon;
@@ -61,7 +62,7 @@ public class Gamemanager : MonoBehaviour
         {
             planeStart = EnemyPlaneStart.Start;
         }
-        if (speedUpTime > 440 && spaceshipStart == EnemySpaceshipStart.NoStart)
+        if (speedUpTime > 150 && spaceshipStart == EnemySpaceshipStart.NoStart)
         {
             spaceshipStart = EnemySpaceshipStart.Start;
         }

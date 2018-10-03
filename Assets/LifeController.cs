@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LifeController : MonoBehaviour {
 
+
+    private EnemiesLeftController enemiesLeftController;
+
     [SerializeField]
     private int lives = 3;
     public float distance = 0.7f;
@@ -19,6 +22,9 @@ public class LifeController : MonoBehaviour {
             newLife.transform.position = pos;
 
         }
+
+       
+
     }
 
 
@@ -32,16 +38,6 @@ public class LifeController : MonoBehaviour {
             return false;
 
         return true;
-
-    }
-
-    public void RestoreAllLives()
-    {
-
-        foreach (Transform child in transform)
-        {
-            child.gameObject.SetActive(true);
-        }
 
     }
 

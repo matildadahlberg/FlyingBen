@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public EnemiesController enemies;
+    public EnemiesLeftController enemies;
   
 
     [SerializeField] float speed = 10F;
