@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Gamemanager : MonoBehaviour
 {
-
-
     float randY;
     Vector2 whereToSpawn;
     public float spawnRate = 2f;
@@ -18,7 +16,6 @@ public class Gamemanager : MonoBehaviour
     public GameObject spaceship;
 
     Coroutine coroutine;
-
 
     EnemyBalloonStart balloonStart = EnemyBalloonStart.NoStart;
     enum EnemyBalloonStart { NoStart, Start, Started }
@@ -117,9 +114,6 @@ public class Gamemanager : MonoBehaviour
                 Instantiate(balloon, whereToSpawn, Quaternion.identity);
             }
 
-
-            //Instantiate(balloon);
-
             yield return new WaitForSeconds(5f);
 
             Debug.Log("coroutine ended");
@@ -194,7 +188,4 @@ public class Gamemanager : MonoBehaviour
         }
 
     }
-
-   
-
 }

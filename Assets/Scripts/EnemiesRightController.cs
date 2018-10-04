@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemiesRightController : MonoBehaviour {
-
-    public LifeController lifeController;
-
-
+    
     public float horizontalSpeed;
     public float verticalSpeed;
     public float amplitude;
@@ -15,20 +12,14 @@ public class EnemiesRightController : MonoBehaviour {
 
     private void Start()
     {
-        //StartCoroutine("myCoRotouine");
-
         tempPosition = transform.position;
-
     }
 
     private void Update()
     {
-
         tempPosition.x -= horizontalSpeed;
         //tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude;
         transform.position = tempPosition;
-
-
 
     }
 
@@ -36,15 +27,11 @@ public class EnemiesRightController : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Blocker")
         {
-s
             Destroy(gameObject);
 
             Debug.Log("Krock");
 
         }
-
-
-
 
     }
 

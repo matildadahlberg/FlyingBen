@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public EnemiesLeftController enemies;
-  
-
     [SerializeField] float speed = 10F;
     [SerializeField] float padding = 1F;
     [SerializeField] float offset = 1.5f;
