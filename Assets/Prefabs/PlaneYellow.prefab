@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 95570901495696802}
   - component: {fileID: 50860674089962346}
   - component: {fileID: 61133134628392210}
-  - component: {fileID: 114258683915079790}
+  - component: {fileID: 114300865432451028}
   m_Layer: 0
   m_Name: PlaneYellow
   m_TagString: Untagged
@@ -107,7 +107,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114258683915079790
+--- !u!114 &114300865432451028
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,14 +115,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1766205684127054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a38f19fddaa6f442fb4a0ee9f7c135e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9758fe9b1e8dd4077aba8b292eefb3d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeController: {fileID: 0}
-  horizontalSpeed: 0.005
+  horizontalSpeed: 0
   verticalSpeed: 0
   amplitude: 0
   tempPosition: {x: 0, y: 0, z: 0}
+  direction: -1
 --- !u!212 &212576663367292428
 SpriteRenderer:
   m_ObjectHideFlags: 1

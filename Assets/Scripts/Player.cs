@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public LifeController lifeController;
+
     [SerializeField] float speed = 10F;
     [SerializeField] float padding = 1F;
     [SerializeField] float offset = 1.5f;
@@ -13,7 +15,6 @@ public class Player : MonoBehaviour {
     float yMin;
     float yMax;
 
-    public GameObject player;
 
     private void Start()
     {
@@ -57,15 +58,25 @@ public class Player : MonoBehaviour {
             transform.position = (Vector3)pos;
 
         }
-        
+
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("player krock" + collision.gameObject.name);
+        Destroy(collision.gameObject);
 
-        Debug.Log("Krock");
+        lifeController.RemoveLife();
 
     }
+
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+
+    //    Debug.Log("Krock");
+
+    //}
 
     void MoveWithKeys()
     {

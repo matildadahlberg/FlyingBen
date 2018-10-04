@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemiesLeftController : MonoBehaviour
 {
-    public LifeController lifeController;
-
-
+    
     public float horizontalSpeed;
     public float verticalSpeed;
     public float amplitude;
 
     public Vector3 tempPosition;
+
+    public int direction = 1;
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class EnemiesLeftController : MonoBehaviour
     private void Update()
     {
 
-        tempPosition.x += horizontalSpeed;
+        tempPosition.x = tempPosition.x + (direction * horizontalSpeed);
         //tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude;
         transform.position = tempPosition;
 
@@ -34,19 +34,27 @@ public class EnemiesLeftController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Blocker")
+        if (collision.gameObject.tag == "Blocker")
         {
+
+            Debug.LogError("Krock left");
 
             Destroy(gameObject);
 
-            Debug.Log("Krock");
+
 
         }
 
     }
 
 
-   
+    private void OnDestroy()
+    {
+        Debug.LogError("destroyed:" + gameObject.name);
+    }
+
+
+
 
 
 
