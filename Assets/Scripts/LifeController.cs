@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LifeController : MonoBehaviour {
+
+    public GameObject gameIsRunning;
+    public GameObject gameOverPage;
     
 
     [SerializeField]
@@ -11,6 +15,9 @@ public class LifeController : MonoBehaviour {
 
     private void Start()
     {
+
+        gameOverPage.SetActive(false);
+
         for (int i = 1; i < lives; i++)
         {
             GameObject newLife = Instantiate(transform.GetChild(0).gameObject);
@@ -23,16 +30,20 @@ public class LifeController : MonoBehaviour {
     }
 
 
-    public bool RemoveLife()
+    public void RemoveLife()
     {
 
         lives--;
         transform.GetChild(lives).gameObject.SetActive(false);
 
-        if (lives == 0)
-            return false;
-
-        return true;
+        if (lives == 0) {
+            gameIsRunning.SetActive(false);
+            gameOverPage.SetActive(true);
+            
+        }
+            
+            
+            
 
     }
 

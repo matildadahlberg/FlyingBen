@@ -37,7 +37,7 @@ public class EnemiesLeftController : MonoBehaviour
         if (collision.gameObject.tag == "Blocker")
         {
 
-            Debug.LogError("Krock left");
+            Debug.Log("Krock left");
 
             Destroy(gameObject);
 
@@ -50,7 +50,7 @@ public class EnemiesLeftController : MonoBehaviour
 
     private void OnDestroy()
     {
-        Debug.LogError("destroyed:" + gameObject.name);
+        //Debug.LogError("destroyed:" + gameObject.name);
     }
 
 
