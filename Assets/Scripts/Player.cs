@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     float yMin;
     float yMax;
 
+    public int direction = 1;
+    public float verticalSpeed;
+    public Vector3 tempPosition;
 
     private void Start()
     {
@@ -68,10 +71,20 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("player krock" + collision.gameObject.name);
-        Destroy(collision.gameObject);
 
-        lifeController.RemoveLife();
+        if(collision.gameObject.tag == "LifeTag") {
+
+            lifeController.AddLife();
+            Debug.Log("EXTRALIV");
+
+        } else {
+            
+            Debug.Log("player krock" + collision.gameObject.name);
+            Destroy(collision.gameObject);
+
+            lifeController.RemoveLife();
+
+        }
 
     }
 
@@ -80,6 +93,7 @@ public class Player : MonoBehaviour
 
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         var newX = transform.position.x + deltaX;
+
         var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * speed;
         var newY = transform.position.y + deltaY;
 

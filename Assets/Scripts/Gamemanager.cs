@@ -8,6 +8,7 @@ public class Gamemanager : MonoBehaviour
     public MeterController meterController;
 
     float randY;
+    float randX;
     Vector2 whereToSpawn;
     public float spawnRate = 2f;
     float nextSpawn = 0.0f;
@@ -31,6 +32,8 @@ public class Gamemanager : MonoBehaviour
     EnemySpaceshipStart spaceshipStart = EnemySpaceshipStart.NoStart;
     enum EnemySpaceshipStart { NoStart, Start, Started }
 
+    EnemyHeartStart heartStart = EnemyHeartStart.NoStart;
+    enum EnemyHeartStart { NoStart, Start, Started }
 
     // Use this for initialization
     void Start()
@@ -53,6 +56,7 @@ public class Gamemanager : MonoBehaviour
         {
             balloonStart = EnemyBalloonStart.Start;
         }
+       
         if (meterController.speedUpTime > 50 && birdStart == EnemyBirdStart.NoStart)
         {
             birdStart = EnemyBirdStart.Start;
@@ -69,13 +73,14 @@ public class Gamemanager : MonoBehaviour
 
 
 
-
+     
         if (balloonStart == EnemyBalloonStart.Start)
         {
             coroutine = StartCoroutine(StartBalloons());
             balloonStart = EnemyBalloonStart.Started;
 
         }
+      
         if (birdStart == EnemyBirdStart.Start)
         {
             StopCoroutine(coroutine);
@@ -98,6 +103,8 @@ public class Gamemanager : MonoBehaviour
             spaceshipStart = EnemySpaceshipStart.Started;
 
         }
+
+
     }
 
 
@@ -112,7 +119,7 @@ public class Gamemanager : MonoBehaviour
             if (Time.time > nextSpawn)
             {
                 nextSpawn = Time.time + spawnRate;
-                randY = Random.Range(-1.70f, 3.80f);
+                randY = Random.Range(-4.60f, 3.80f);
                 whereToSpawn = new Vector2(transform.position.x, randY);
                 Instantiate(balloon, whereToSpawn, Quaternion.identity);
             }
@@ -134,7 +141,7 @@ public class Gamemanager : MonoBehaviour
             if (Time.time > nextSpawn)
             {
                 nextSpawn = Time.time + spawnRate;
-                randY = Random.Range(-1.70f, 3.80f);
+                randY = Random.Range(-4.60f, 3.80f);
                 whereToSpawn = new Vector2(transform.position.x, randY);
                 Instantiate(bird, whereToSpawn, Quaternion.identity);
             }
@@ -156,7 +163,7 @@ public class Gamemanager : MonoBehaviour
             if (Time.time > nextSpawn)
             {
                 nextSpawn = Time.time + spawnRate;
-                randY = Random.Range(-1.70f, 3.80f);
+                randY = Random.Range(-4.60f, 3.80f);
                 whereToSpawn = new Vector2(transform.position.x, randY);
                 Instantiate(plane, whereToSpawn, Quaternion.identity);
             }
@@ -179,7 +186,7 @@ public class Gamemanager : MonoBehaviour
             if (Time.time > nextSpawn)
             {
                 nextSpawn = Time.time + spawnRate;
-                randY = Random.Range(-1.70f, 3.80f);
+                randY = Random.Range(-4.60f, 3.80f);
                 whereToSpawn = new Vector2(transform.position.x, randY);
                 Instantiate(spaceship, whereToSpawn, Quaternion.identity);
             }
@@ -191,4 +198,8 @@ public class Gamemanager : MonoBehaviour
         }
 
     }
+
+
+
+
 }

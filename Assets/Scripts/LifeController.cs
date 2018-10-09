@@ -30,6 +30,19 @@ public class LifeController : MonoBehaviour
     }
 
 
+    public void AddLife(){
+
+
+
+        if (lives < 3)
+        {
+            lives++;
+            transform.GetChild(lives).gameObject.SetActive(true);
+
+        }
+        
+    }
+
     public void RemoveLife()
     {
 
@@ -40,7 +53,6 @@ public class LifeController : MonoBehaviour
         {
             gameIsRunning.SetActive(false);
             gameOverPage.SetActive(true);
-
 
         }
 
