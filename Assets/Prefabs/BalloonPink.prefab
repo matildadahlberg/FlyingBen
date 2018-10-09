@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212040490313895542}
   - component: {fileID: 50584400782780434}
   - component: {fileID: 61843726894482022}
-  - component: {fileID: 114482458657572642}
+  - component: {fileID: 114910342552765688}
   m_Layer: 0
   m_Name: BalloonPink
   m_TagString: EnemiesTag
@@ -88,7 +88,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 14.579999, y: 24}
   m_EdgeRadius: 0
---- !u!114 &114482458657572642
+--- !u!114 &114910342552765688
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,14 +96,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1527844722482410}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9758fe9b1e8dd4077aba8b292eefb3d1, type: 3}
+  m_Script: {fileID: 11500000, guid: f880c7ab6ac3c40c1ac0cacfd6a271ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeController: {fileID: 0}
   horizontalSpeed: 0.005
-  verticalSpeed: 1
-  amplitude: 1
+  verticalSpeed: 0
+  amplitude: 0
   tempPosition: {x: 0, y: 0, z: 0}
+  direction: 1
 --- !u!212 &212040490313895542
 SpriteRenderer:
   m_ObjectHideFlags: 1

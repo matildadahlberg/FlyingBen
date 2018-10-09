@@ -540,13 +540,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 248584538}
+  - component: {fileID: 248584539}
   m_Layer: 0
   m_Name: GameOverPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &248584538
 Transform:
   m_ObjectHideFlags: 0
@@ -562,6 +563,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &248584539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 248584537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc166bcc8a654e46bb1de2c36535c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meterController: {fileID: 443220775}
 --- !u!1 &322221277
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092b1e34fb1344015b06622031b23948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meterController: {fileID: 443220775}
   spawnRate: 2
   bird: {fileID: 1612287533390010, guid: 1dfc50e0c10e84e99af69ec7d718d6f8, type: 2}
   balloon: {fileID: 1527844722482410, guid: 9880f40123f4d432fa0de64696e402dc, type: 2}
@@ -801,7 +815,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.86844176}
   m_AnchorMax: {x: 0.5, y: 0.975}
   m_AnchoredPosition: {x: 0, y: 34.299927}
-  m_SizeDelta: {x: 645, y: -68.6}
+  m_SizeDelta: {x: 645, y: -68.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &443220775
 MonoBehaviour:
@@ -817,6 +831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   counterText: {fileID: 0}
   speedUp: 2
+  speedUpTime: 0
 --- !u!114 &443220776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1193,6 +1208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092b1e34fb1344015b06622031b23948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meterController: {fileID: 443220775}
   spawnRate: 2
   bird: {fileID: 1984605452544650, guid: 5221992376e034a309fea0eee5f08e3d, type: 2}
   balloon: {fileID: 1096847382820112, guid: 66f16c29b7a534bcda9db9f541d6166b, type: 2}
@@ -1540,7 +1556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1343843580
 Transform:
   m_ObjectHideFlags: 0
@@ -2012,7 +2028,40 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1636313940}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 248584539}
+        m_MethodName: PlayGameAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1343843579}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 248584537}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1636313940
@@ -2177,6 +2226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730191f8b4d8e4e7085cbc457783acec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameIsRunning: {fileID: 1343843579}
+  gameOverPage: {fileID: 248584537}
   lives: 3
   distance: 0.4
 --- !u!4 &1661266723
@@ -2425,12 +2476,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 248584539}
+        m_MethodName: GoBackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

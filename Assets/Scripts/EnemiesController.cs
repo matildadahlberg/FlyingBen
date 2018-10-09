@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemiesLeftController : MonoBehaviour
+public class EnemiesController : MonoBehaviour
 {
-    
+
     public float horizontalSpeed;
     public float verticalSpeed;
     public float amplitude;
@@ -15,10 +15,7 @@ public class EnemiesLeftController : MonoBehaviour
 
     private void Start()
     {
-        //StartCoroutine("myCoRotouine");
-
         tempPosition = transform.position;
-
     }
 
     private void Update()
@@ -27,8 +24,6 @@ public class EnemiesLeftController : MonoBehaviour
         tempPosition.x = tempPosition.x + (direction * horizontalSpeed);
         //tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude;
         transform.position = tempPosition;
-
-
 
     }
 
@@ -42,20 +37,9 @@ public class EnemiesLeftController : MonoBehaviour
             Destroy(gameObject);
 
 
-
         }
 
     }
-
-
-    private void OnDestroy()
-    {
-        //Debug.LogError("destroyed:" + gameObject.name);
-    }
-
-
-
-
 
 
 }

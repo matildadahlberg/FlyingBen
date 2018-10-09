@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
     public LifeController lifeController;
 
@@ -25,14 +26,16 @@ public class Player : MonoBehaviour {
     }
 
 
-    void Update () {
+    void Update()
+    {
 
         //Move();
         MoveWithKeys();
-	}
+    }
 
-    void SetUpMoveBounderies() {
-        
+    void SetUpMoveBounderies()
+    {
+
         Camera gameCamera = Camera.main;
         xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
         xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
@@ -40,7 +43,8 @@ public class Player : MonoBehaviour {
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
     }
 
-    void Move() {
+    void Move()
+    {
 
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
@@ -70,14 +74,6 @@ public class Player : MonoBehaviour {
         lifeController.RemoveLife();
 
     }
-
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-
-    //    Debug.Log("Krock");
-
-    //}
 
     void MoveWithKeys()
     {

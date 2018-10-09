@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour {
+public class MainMenu : MonoBehaviour
+{
 
-    public void PlayGame() {
+    public MeterController meterController;
+
+    public void PlayGame()
+    {
 
         SceneManager.LoadScene("Game");
+        meterController.TimeRestart();
     }
 
-	
 }

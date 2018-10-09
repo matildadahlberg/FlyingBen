@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Gamemanager : MonoBehaviour
 {
+
+    public MeterController meterController;
+
     float randY;
     Vector2 whereToSpawn;
     public float spawnRate = 2f;
     float nextSpawn = 0.0f;
- 
 
     public GameObject bird;
     public GameObject balloon;
@@ -44,22 +46,23 @@ public class Gamemanager : MonoBehaviour
 
     void Enemies()
     {
-        int speedUpTime = (int)(Time.time * 2.5);
 
-        if (speedUpTime > 10 && balloonStart == EnemyBalloonStart.NoStart)
+        //int speedUpTime = (int)(Time.time * 2.5);
+
+        if (meterController.speedUpTime > 10 && balloonStart == EnemyBalloonStart.NoStart)
         {
             balloonStart = EnemyBalloonStart.Start;
         }
-        if (speedUpTime > 50 && birdStart == EnemyBirdStart.NoStart)
+        if (meterController.speedUpTime > 50 && birdStart == EnemyBirdStart.NoStart)
         {
             birdStart = EnemyBirdStart.Start;
 
         }
-        if (speedUpTime > 90 && planeStart == EnemyPlaneStart.NoStart)
+        if (meterController.speedUpTime > 90 && planeStart == EnemyPlaneStart.NoStart)
         {
             planeStart = EnemyPlaneStart.Start;
         }
-        if (speedUpTime > 150 && spaceshipStart == EnemySpaceshipStart.NoStart)
+        if (meterController.speedUpTime > 150 && spaceshipStart == EnemySpaceshipStart.NoStart)
         {
             spaceshipStart = EnemySpaceshipStart.Start;
         }
