@@ -21,9 +21,10 @@ public class EnemiesController : MonoBehaviour
     private void Update()
     {
 
-        tempPosition.x = tempPosition.x + (direction * horizontalSpeed);
-        //tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude;
-        transform.position = tempPosition;
+            tempPosition.x = tempPosition.x + (direction * horizontalSpeed);
+            //tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude;
+            transform.position = tempPosition;
+            
 
     }
 

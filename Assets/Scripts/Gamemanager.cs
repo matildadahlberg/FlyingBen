@@ -111,7 +111,6 @@ public class Gamemanager : MonoBehaviour
 
     IEnumerator StartBalloons()
     {
-        Debug.Log("coroutine started");
         while (true)
         {
 
@@ -126,8 +125,6 @@ public class Gamemanager : MonoBehaviour
 
             yield return new WaitForSeconds(5f);
 
-            Debug.Log("coroutine ended");
-
         }
 
     }
@@ -135,7 +132,6 @@ public class Gamemanager : MonoBehaviour
 
     IEnumerator StartBirds()
     {
-        Debug.Log("coroutine started");
         while (true)
         {
             if (Time.time > nextSpawn)
@@ -148,15 +144,12 @@ public class Gamemanager : MonoBehaviour
 
             yield return new WaitForSeconds(3f);
 
-            Debug.Log("coroutine ended");
-
         }
 
     }
 
     IEnumerator StartPlanes()
     {
-        Debug.Log("coroutine started");
         while (true)
         {
 
@@ -168,18 +161,13 @@ public class Gamemanager : MonoBehaviour
                 Instantiate(plane, whereToSpawn, Quaternion.identity);
             }
 
-
             yield return new WaitForSeconds(2f);
-
-            Debug.Log("coroutine ended");
-
         }
 
     }
 
     IEnumerator StartSpaceships()
     {
-        Debug.Log("coroutine started");
         while (true)
         {
 
@@ -192,8 +180,6 @@ public class Gamemanager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(1f);
-
-            Debug.Log("coroutine ended");
 
         }
 

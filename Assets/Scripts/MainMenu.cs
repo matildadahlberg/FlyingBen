@@ -2,11 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class MainMenu : MonoBehaviour
 {
 
-    public MeterController meterController;
+    private MeterController meterController;
+    public Text highScoreText;
+   
+
+    private void Start()
+    {
+        
+    }
+
 
     public void PlayGame()
     {

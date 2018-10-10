@@ -5,12 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LifeController : MonoBehaviour
 {
-
     public GameObject gameIsRunning;
     public GameObject gameOverPage;
 
     [SerializeField]
-    private int lives = 3;
+    public int lives = 3;
     public float distance = 0.7f;
 
     private void Start()
@@ -32,14 +31,12 @@ public class LifeController : MonoBehaviour
 
     public void AddLife(){
 
-
-
         if (lives < 3)
         {
             lives++;
-            transform.GetChild(lives).gameObject.SetActive(true);
-
+            transform.GetChild(lives-1).gameObject.SetActive(true);
         }
+
         
     }
 

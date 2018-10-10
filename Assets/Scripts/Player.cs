@@ -75,14 +75,14 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "LifeTag") {
 
             lifeController.AddLife();
-            Debug.Log("EXTRALIV");
 
-        } else {
-            
-            Debug.Log("player krock" + collision.gameObject.name);
             Destroy(collision.gameObject);
 
+        } else {
+
             lifeController.RemoveLife();
+
+            Destroy(collision.gameObject);
 
         }
 
