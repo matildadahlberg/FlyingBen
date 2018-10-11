@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meterController: {fileID: 443220775}
-  score: 0
+  mainMenu: {fileID: 0}
   scoreText: {fileID: 404983484}
 --- !u!1 &322221277
 GameObject:
@@ -2800,7 +2800,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heart: {fileID: 1311559219712518, guid: 6ad217929d414480dad41f592125c828, type: 2}
-  meterController: {fileID: 0}
 --- !u!4 &1850832944
 Transform:
   m_ObjectHideFlags: 0
@@ -2808,7 +2807,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1850832942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1147927, y: 5.3017216, z: -9.738798}
+  m_LocalPosition: {x: -0.1147927, y: 5.3017216, z: 0.138378}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1343843580}

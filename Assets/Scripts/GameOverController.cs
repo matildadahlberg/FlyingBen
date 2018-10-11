@@ -8,30 +8,18 @@ public class GameOverController : MonoBehaviour
 {
 
     public MeterController meterController;
-
+    public MainMenu mainMenu;
     public Text scoreText;
-    public int score;
-    public int highScore;
-
-
+    private int score;
+    private int highScore;
 
 private void Start()
     {
         score = meterController.speedUpTime; 
         scoreText.text = ("Your Score: " + score);
 
-        highScore = PlayerPrefs.GetInt("highscore", highScore);
-
-  
-    }
-
-    private void Update()
-    {
-        if(score > highScore){
-            highScore = score;
-            scoreText.text = "Your Score: " + score;
-
-            PlayerPrefs.SetInt("highscore", highScore);
+        if(score > PlayerPrefs.GetInt("highscore",0)) {
+            PlayerPrefs.SetInt("highscore", score);
         }
     }
 
@@ -41,17 +29,11 @@ private void Start()
         SceneManager.LoadScene("Game");
         meterController.TimeRestart();
 
-
     }
 
     public void GoBackToMenu()
     {
-
         SceneManager.LoadScene("Menu");
         meterController.TimeRestart();
-
-
     }
-
-
 }

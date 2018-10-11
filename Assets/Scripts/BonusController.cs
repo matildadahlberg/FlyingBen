@@ -5,11 +5,16 @@ using UnityEngine;
 public class BonusController : MonoBehaviour {
 
     public GameObject heart;
-    public MeterController meterController;
+   
 
     float randX;
     Vector2 whereToSpawn;
     float nextSpawn = 0.0f;
+
+    private void Start()
+    {
+        StartCoroutine(StartHearts());
+    }
 
 
     IEnumerator StartHearts()

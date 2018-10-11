@@ -32,12 +32,7 @@ public class EnemiesController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Blocker")
         {
-
-            Debug.Log("Krock left");
-
             Destroy(gameObject);
-
-
         }
 
     }

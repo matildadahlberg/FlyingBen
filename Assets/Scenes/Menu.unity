@@ -1968,7 +1968,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highScoreText: {fileID: 250521866}
-  highScore: 0
 --- !u!1 &1419700862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,7 +2169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highScoreText: {fileID: 0}
-  highScore: 0
 --- !u!1 &1484667544
 GameObject:
   m_ObjectHideFlags: 0
@@ -2338,7 +2336,7 @@ GameObject:
   - component: {fileID: 1780119354}
   - component: {fileID: 1780119353}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: Pages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
