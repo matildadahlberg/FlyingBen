@@ -25,7 +25,7 @@ private void Start()
 
     public void PlayGameAgain()
     {
-
+        FindObjectOfType<AudioManager>().Play("ButtonPressed");
         SceneManager.LoadScene("Game");
         meterController.TimeRestart();
 
@@ -33,6 +33,7 @@ private void Start()
 
     public void GoBackToMenu()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonPressed");
         SceneManager.LoadScene("Menu");
         meterController.TimeRestart();
     }

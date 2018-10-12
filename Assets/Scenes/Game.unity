@@ -1784,7 +1784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1269822236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1796,6 +1796,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f008b65446b4390a779b93e42b20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sounds:
+  - name: Life
+    clip: {fileID: 8300000, guid: 7bd6b897eb5ca4b7d88a205c4a51640c, type: 3}
+    volume: 0.06
+    source: {fileID: 0}
+  - name: Crash
+    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
+    volume: 0.06
+    source: {fileID: 0}
+  - name: Lose
+    clip: {fileID: 8300000, guid: ff5f85da24bc943d1abdc5760a22bc81, type: 3}
+    volume: 0.106
+    source: {fileID: 0}
+  - name: ButtonPressed
+    clip: {fileID: 8300000, guid: 3bc69e83a01764a5f9b575a744b7af0e, type: 3}
+    volume: 0.12
+    source: {fileID: 0}
 --- !u!4 &1269822238
 Transform:
   m_ObjectHideFlags: 0

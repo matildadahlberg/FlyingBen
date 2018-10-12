@@ -48,6 +48,7 @@ public class LifeController : MonoBehaviour
 
         if (lives == 0)
         {
+            FindObjectOfType<AudioManager>().Play("Lose");
             gameIsRunning.SetActive(false);
             gameOverPage.SetActive(true);
 

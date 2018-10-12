@@ -24,9 +24,16 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-
+        FindObjectOfType<AudioManager>().Play("ButtonPressed");
         SceneManager.LoadScene("Game");
         meterController.TimeRestart();
     }
+
+    public void SettingsButton()
+    {
+        FindObjectOfType<AudioManager>().Play("ButtonPressed");
+    }
+
+
 
 }

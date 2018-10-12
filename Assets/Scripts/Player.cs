@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
 
             Destroy(collision.gameObject);
 
-            //FindObjectOfType<AudioManager>().Play("LifePlus2");
+            FindObjectOfType<AudioManager>().Play("Life");
 
         }
         else if (collision.gameObject.tag == "ArrowUp")
@@ -89,6 +89,7 @@ public class Player : MonoBehaviour
             StartCoroutine(StartArrowUpSpeed());
 
             Destroy(collision.gameObject);
+
         }
 
         else if (collision.gameObject.tag == "ArrowDown")
@@ -97,6 +98,8 @@ public class Player : MonoBehaviour
             StartCoroutine(StartArrowDownSpeed());
 
             Destroy(collision.gameObject);
+
+
         }
 
         else {
@@ -104,6 +107,8 @@ public class Player : MonoBehaviour
             lifeController.RemoveLife();
 
             Destroy(collision.gameObject);
+
+            FindObjectOfType<AudioManager>().Play("Crash");
 
         }
 

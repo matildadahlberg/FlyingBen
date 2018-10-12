@@ -1,18 +1,18 @@
-﻿//using UnityEngine;
-//using UnityEngine.Audio;
+﻿using UnityEngine;
+using UnityEngine.Audio;
 
 
-//[System.Serializable]
-//public class Sound {
+[System.Serializable]
+public class Sound {
 
 
-//    public string name;
+    public string name;
 
-//    public AudioClip clip;
-//    [Range(0f,1f)]
-//    public float volume;
+    public AudioClip clip;
+    [Range(0f,1f)]
+    public float volume;
 
-//    [HideInInspector]
-//    public AudioSource source;
+    [HideInInspector]
+    public AudioSource source;
 
-//}
+}
