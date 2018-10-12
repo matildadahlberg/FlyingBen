@@ -7,6 +7,8 @@ TagManager:
   - EnemiesTag
   - Blocker
   - LifeTag
+  - ArrowUp
+  - ArrowDown
   layers:
   - Default
   - TransparentFX

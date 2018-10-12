@@ -1796,7 +1796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f008b65446b4390a779b93e42b20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
 --- !u!4 &1269822238
 Transform:
   m_ObjectHideFlags: 0
@@ -2825,7 +2824,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24c9606e76c94be6ba2d18de560ab0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundScroller: {fileID: 27239551}
   lifeController: {fileID: 1661266722}
+  meterController: {fileID: 443220775}
   speed: 10
   padding: 1
   offset: 1.5
@@ -2965,6 +2966,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heart: {fileID: 1311559219712518, guid: 6ad217929d414480dad41f592125c828, type: 2}
+  arrowUp: {fileID: 1947610894128840, guid: 5bc8cd9637dec4c81bd206fa96bdd31a, type: 2}
+  arrowDown: {fileID: 1080580926683662, guid: a835e935991e14ec29e824c1581047aa, type: 2}
 --- !u!4 &1850832944
 Transform:
   m_ObjectHideFlags: 0

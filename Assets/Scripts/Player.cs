@@ -8,7 +8,9 @@ using UnityEngine.Audio;
 public class Player : MonoBehaviour
 {
 
+    public BackgroundScroller backgroundScroller;
     public LifeController lifeController;
+    public MeterController meterController;
     [SerializeField] float speed = 10F;
     [SerializeField] float padding = 1F;
     [SerializeField] float offset = 1.5f;
@@ -23,7 +25,6 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        //Instantiate(player);
 
         SetUpMoveBounderies();
     }
@@ -72,7 +73,8 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if(collision.gameObject.tag == "LifeTag") {
+        if (collision.gameObject.tag == "LifeTag")
+        {
 
             lifeController.AddLife();
 
@@ -80,7 +82,24 @@ public class Player : MonoBehaviour
 
             //FindObjectOfType<AudioManager>().Play("LifePlus2");
 
-        } else {
+        }
+        else if (collision.gameObject.tag == "ArrowUp")
+        {
+
+            StartCoroutine(StartArrowUpSpeed());
+
+            Destroy(collision.gameObject);
+        }
+
+        else if (collision.gameObject.tag == "ArrowDown")
+        {
+
+            StartCoroutine(StartArrowDownSpeed());
+
+            Destroy(collision.gameObject);
+        }
+
+        else {
 
             lifeController.RemoveLife();
 
@@ -89,6 +108,9 @@ public class Player : MonoBehaviour
         }
 
     }
+
+
+
 
     void MoveWithKeys()
     {
@@ -100,5 +122,28 @@ public class Player : MonoBehaviour
         var newY = transform.position.y + deltaY;
 
         transform.position = new Vector2(newX, newY);
+    }
+
+    IEnumerator StartArrowUpSpeed()
+    {
+        backgroundScroller.SpeedUp();
+        meterController.speedUp *= 2;
+        
+            yield return new WaitForSeconds(5.0f);
+
+        backgroundScroller.SpeedNeutral();
+        meterController.speedUp /= 2;
+    }
+
+    IEnumerator StartArrowDownSpeed()
+    {
+        backgroundScroller.SpeedDown();
+        meterController.speedUp -= 4;
+
+            yield return new WaitForSeconds(5.0f);
+
+        backgroundScroller.SpeedNeutral();
+        meterController.speedUp += 4;
+
     }
 }

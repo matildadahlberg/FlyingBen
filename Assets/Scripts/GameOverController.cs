@@ -15,7 +15,7 @@ public class GameOverController : MonoBehaviour
 
 private void Start()
     {
-        score = meterController.speedUpTime; 
+        score = (int) meterController.speedUpTime; 
         scoreText.text = ("Your Score: " + score);
 
         if(score > PlayerPrefs.GetInt("highscore",0)) {

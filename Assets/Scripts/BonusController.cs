@@ -5,6 +5,8 @@ using UnityEngine;
 public class BonusController : MonoBehaviour {
 
     public GameObject heart;
+    public GameObject arrowUp;
+    public GameObject arrowDown;
    
 
     float randX;
@@ -14,6 +16,8 @@ public class BonusController : MonoBehaviour {
     private void Start()
     {
         StartCoroutine(StartHearts());
+        StartCoroutine(StartArrowDown());
+        StartCoroutine(StartArrowUp());
     }
 
 
@@ -30,6 +34,40 @@ public class BonusController : MonoBehaviour {
             }
 
             yield return new WaitForSeconds(40.0f);
+        }
+
+    }
+
+    IEnumerator StartArrowUp()
+    {
+        while (true)
+        {
+
+            if (Time.time > nextSpawn)
+            {
+                randX = Random.Range(-2f, 2.0f);
+                whereToSpawn = new Vector2(randX, transform.position.y);
+                Instantiate(arrowUp, whereToSpawn, Quaternion.identity);
+            }
+
+            yield return new WaitForSeconds(20.0f);
+        }
+
+    }
+
+    IEnumerator StartArrowDown()
+    {
+        while (true)
+        {
+
+            if (Time.time > nextSpawn)
+            {
+                randX = Random.Range(-2f, 2.0f);
+                whereToSpawn = new Vector2(randX, transform.position.y);
+                Instantiate(arrowDown, whereToSpawn, Quaternion.identity);
+            }
+
+            yield return new WaitForSeconds(50.0f);
         }
 
     }

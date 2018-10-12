@@ -9,7 +9,7 @@ public class MeterController : MonoBehaviour
     public Text counterText;
     public float speedUp = 2.0f;
     float startTime;
-    public int speedUpTime;
+    public float speedUpTime = 0;
 
 
     private void Start()
@@ -22,6 +22,7 @@ public class MeterController : MonoBehaviour
 
     public void TimeRestart()
     {
+        speedUpTime = 0;
         startTime = Time.time;
     }
 
@@ -29,19 +30,9 @@ public class MeterController : MonoBehaviour
     void Update()
     {
 
-        timeCounter();
+        speedUpTime += Time.deltaTime * speedUp;
+        counterText.text = (int)speedUpTime + " m";
 
     }
-
-    public void timeCounter()
-    {
-
-        speedUpTime = (int)((Time.time - startTime) * speedUp);
-        counterText.text = speedUpTime + " m";
-
-    }
-
-
-
 
 }
