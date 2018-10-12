@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class Player : MonoBehaviour
 {
 
     public LifeController lifeController;
-
     [SerializeField] float speed = 10F;
     [SerializeField] float padding = 1F;
     [SerializeField] float offset = 1.5f;
@@ -77,6 +77,8 @@ public class Player : MonoBehaviour
             lifeController.AddLife();
 
             Destroy(collision.gameObject);
+
+            //FindObjectOfType<AudioManager>().Play("LifePlus2");
 
         } else {
 
