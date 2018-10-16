@@ -7,10 +7,13 @@ public class LifeController : MonoBehaviour
 {
     public GameObject gameIsRunning;
     public GameObject gameOverPage;
+    public MainMenu mainMenu;
 
     [SerializeField]
     public int lives = 3;
     public float distance = 0.7f;
+
+    public int sounfEffectsOn = 1;
 
     private void Start()
     {
@@ -48,7 +51,12 @@ public class LifeController : MonoBehaviour
 
         if (lives == 0)
         {
-            FindObjectOfType<AudioManager>().Play("Lose");
+            if (sounfEffectsOn == PlayerPrefs.GetInt("soundEffects", 0))
+            {
+                FindObjectOfType<AudioManager>().Play("Lose");
+            }
+
+            
             gameIsRunning.SetActive(false);
             gameOverPage.SetActive(true);
 

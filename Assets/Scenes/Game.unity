@@ -577,6 +577,7 @@ MonoBehaviour:
   meterController: {fileID: 443220775}
   mainMenu: {fileID: 0}
   scoreText: {fileID: 404983484}
+  sounfEffectsOn: 1
 --- !u!1 &322221277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &987773651
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1800,18 +1801,22 @@ MonoBehaviour:
   - name: Life
     clip: {fileID: 8300000, guid: 7bd6b897eb5ca4b7d88a205c4a51640c, type: 3}
     volume: 0.06
+    loop: 0
     source: {fileID: 0}
   - name: Crash
     clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
     volume: 0.06
+    loop: 0
     source: {fileID: 0}
   - name: Lose
     clip: {fileID: 8300000, guid: ff5f85da24bc943d1abdc5760a22bc81, type: 3}
     volume: 0.106
+    loop: 0
     source: {fileID: 0}
   - name: ButtonPressed
     clip: {fileID: 8300000, guid: 3bc69e83a01764a5f9b575a744b7af0e, type: 3}
     volume: 0.12
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &1269822238
 Transform:
@@ -2514,8 +2519,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameIsRunning: {fileID: 1343843579}
   gameOverPage: {fileID: 248584537}
+  mainMenu: {fileID: 0}
   lives: 3
   distance: 0.4
+  sounfEffectsOn: 1
 --- !u!4 &1661266723
 Transform:
   m_ObjectHideFlags: 0
@@ -2844,12 +2851,14 @@ MonoBehaviour:
   backgroundScroller: {fileID: 27239551}
   lifeController: {fileID: 1661266722}
   meterController: {fileID: 443220775}
+  mainMenu: {fileID: 0}
   speed: 10
   padding: 1
   offset: 1.5
   direction: 1
   verticalSpeed: 0.001
   tempPosition: {x: 0, y: 0, z: 0}
+  sounfEffectsOn: 1
 --- !u!61 &1788791099
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2985,6 +2994,7 @@ MonoBehaviour:
   heart: {fileID: 1311559219712518, guid: 6ad217929d414480dad41f592125c828, type: 2}
   arrowUp: {fileID: 1947610894128840, guid: 5bc8cd9637dec4c81bd206fa96bdd31a, type: 2}
   arrowDown: {fileID: 1080580926683662, guid: a835e935991e14ec29e824c1581047aa, type: 2}
+  meterController: {fileID: 443220775}
 --- !u!4 &1850832944
 Transform:
   m_ObjectHideFlags: 0

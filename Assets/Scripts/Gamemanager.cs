@@ -35,12 +35,6 @@ public class Gamemanager : MonoBehaviour
     EnemyHeartStart heartStart = EnemyHeartStart.NoStart;
     enum EnemyHeartStart { NoStart, Start, Started }
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {

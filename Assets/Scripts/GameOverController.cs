@@ -13,7 +13,9 @@ public class GameOverController : MonoBehaviour
     private int score;
     private int highScore;
 
-private void Start()
+    public int sounfEffectsOn = 1;
+
+    private void Start()
     {
         score = (int) meterController.speedUpTime; 
         scoreText.text = ("Your Score: " + score);
@@ -25,7 +27,11 @@ private void Start()
 
     public void PlayGameAgain()
     {
-        FindObjectOfType<AudioManager>().Play("ButtonPressed");
+        if (sounfEffectsOn == PlayerPrefs.GetInt("soundEffects", 0))
+        {
+            FindObjectOfType<AudioManager>().Play("ButtonPressed");
+        }
+     
         SceneManager.LoadScene("Game");
         meterController.TimeRestart();
 
@@ -33,7 +39,6 @@ private void Start()
 
     public void GoBackToMenu()
     {
-        FindObjectOfType<AudioManager>().Play("ButtonPressed");
         SceneManager.LoadScene("Menu");
         meterController.TimeRestart();
     }

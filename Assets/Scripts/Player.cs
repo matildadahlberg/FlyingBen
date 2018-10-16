@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     public BackgroundScroller backgroundScroller;
     public LifeController lifeController;
     public MeterController meterController;
+    public MainMenu mainMenu;
+
+
     [SerializeField] float speed = 10F;
     [SerializeField] float padding = 1F;
     [SerializeField] float offset = 1.5f;
@@ -23,10 +26,14 @@ public class Player : MonoBehaviour
     public float verticalSpeed;
     public Vector3 tempPosition;
 
+    public int sounfEffectsOn = 1;
+
     private void Start()
     {
-
         SetUpMoveBounderies();
+
+
+
     }
 
 
@@ -80,7 +87,13 @@ public class Player : MonoBehaviour
 
             Destroy(collision.gameObject);
 
-            FindObjectOfType<AudioManager>().Play("Life");
+            if (sounfEffectsOn == PlayerPrefs.GetInt("soundEffects",0))
+            {
+                FindObjectOfType<AudioManager>().Play("Life");
+            }
+
+            
+           
 
         }
         else if (collision.gameObject.tag == "ArrowUp")
@@ -108,7 +121,10 @@ public class Player : MonoBehaviour
 
             Destroy(collision.gameObject);
 
-            FindObjectOfType<AudioManager>().Play("Crash");
+            if (sounfEffectsOn == PlayerPrefs.GetInt("soundEffects", 0)){
+
+                FindObjectOfType<AudioManager>().Play("Crash");
+            }
 
         }
 
@@ -133,7 +149,7 @@ public class Player : MonoBehaviour
     {
         backgroundScroller.SpeedUp();
         meterController.speedUp *= 2;
-        
+
             yield return new WaitForSeconds(5.0f);
 
         backgroundScroller.SpeedNeutral();

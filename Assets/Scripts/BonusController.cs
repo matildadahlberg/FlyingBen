@@ -7,17 +7,40 @@ public class BonusController : MonoBehaviour {
     public GameObject heart;
     public GameObject arrowUp;
     public GameObject arrowDown;
+    public MeterController meterController;
    
 
     float randX;
     Vector2 whereToSpawn;
     float nextSpawn = 0.0f;
 
-    private void Start()
+    //private void Start()
+    //{
+    //    if (meterController.speedUpTime == 10 )
+    //    {
+    //        StartCoroutine(StartHearts());
+    //    }
+
+    //    StartCoroutine(StartArrowDown());
+    //    StartCoroutine(StartArrowUp());
+    //}
+
+    private void Update()
     {
-        StartCoroutine(StartHearts());
-        StartCoroutine(StartArrowDown());
-        StartCoroutine(StartArrowUp());
+
+        if (meterController.speedUpTime > 10)
+        {
+            StartCoroutine(StartHearts());
+        }
+        if (meterController.speedUpTime > 10)
+        {
+            StartCoroutine(StartArrowDown());
+        }
+        if (meterController.speedUpTime > 10)
+        {
+            StartCoroutine(StartArrowUp());
+        }
+
     }
 
 
@@ -33,7 +56,7 @@ public class BonusController : MonoBehaviour {
                 Instantiate(heart, whereToSpawn, Quaternion.identity);
             }
 
-            yield return new WaitForSeconds(40.0f);
+            yield return new WaitForSeconds(5.0f);
         }
 
     }
