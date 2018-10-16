@@ -1050,7 +1050,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1392881841}
-        m_MethodName: SoundButtonEffect
+        m_MethodName: BackgroundMusicPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2969,7 +2969,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1392881841}
-        m_MethodName: SoundButtonEffect
+        m_MethodName: BackgroundMusicStop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3107,7 +3107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1392881840
 Transform:
   m_ObjectHideFlags: 0
@@ -3137,8 +3137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highScoreText: {fileID: 250521866}
-  soundFXon: 1
-  sounfEffectsOn: 1
 --- !u!1 &1419700862
 GameObject:
   m_ObjectHideFlags: 0
@@ -3465,7 +3463,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1484646833
 Transform:
   m_ObjectHideFlags: 0

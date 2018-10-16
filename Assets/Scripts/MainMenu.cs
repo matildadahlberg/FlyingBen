@@ -13,28 +13,34 @@ public class MainMenu : MonoBehaviour
    // private MeterController meterController;
     public Text highScoreText;
     private int mainHighScore;
-    public int soundFXon;
-    public int sounfEffectsOn = 1;
+    private int soundFXon;
+    private int backgroundMusic;
+  
+
+
 
 
     private void Start()
     {
+        
+        
         mainHighScore = PlayerPrefs.GetInt("highscore", 0);
 
         highScoreText.text = ("Your HighScore: " + mainHighScore);
 
-        if (sounfEffectsOn == PlayerPrefs.GetInt("soundEffects", 0))
-        {
+
             FindObjectOfType<AudioManager>().Play("ButtonPressed");
+
             FindObjectOfType<AudioManager>().Play("BackgroundMusic");
-        }
+
+        
 
     }
 
 
     public void PlayGame()
     {
-        if (sounfEffectsOn == PlayerPrefs.GetInt("soundEffects", 0))
+        if (soundFXon == PlayerPrefs.GetInt("soundEffects", 0))
         {
             FindObjectOfType<AudioManager>().Play("ButtonPressed");
         }
@@ -48,34 +54,52 @@ public class MainMenu : MonoBehaviour
 
     public void SoundEffectsOn(){
 
-        Debug.Log("SOUND ON");
+
         soundFXon = 1;
-        PlayerPrefs.SetInt("soundEffects", soundFXon);        
+        PlayerPrefs.SetInt("soundEffects", soundFXon);  
+        //FindObjectOfType<AudioManager>().Play("ButtonPressed");
+        Debug.Log("SOUND ON " + soundFXon);
+       
+
+
     }
 
     public void SoundEffectsOff()
     {
 
-        Debug.Log("SOUNF OFF");
+
         soundFXon = 0;
         PlayerPrefs.SetInt("soundEffects", soundFXon);
+        //FindObjectOfType<AudioManager>().Stop("ButtonPressed");
+        Debug.Log("SOUNF OFF " + soundFXon);
+
     }
 
-    public void BackgroundMusicStop(){
+    public void BackgroundMusicStop()
+    {
 
+
+        backgroundMusic = 0;
+        PlayerPrefs.SetInt("backgroundMusic", backgroundMusic);
         FindObjectOfType<AudioManager>().Stop("BackgroundMusic");
+        Debug.Log("BackgroundSOUNF OFF " + backgroundMusic);
 
     }
 
     public void BackgroundMusicPlay()
     {
+        
+        backgroundMusic = 1;
+        PlayerPrefs.SetInt("backgroundMusic", backgroundMusic);
         FindObjectOfType<AudioManager>().Play("BackgroundMusic");
+        Debug.Log("BackgroundSOUND ON " + backgroundMusic);
+
        
     }
 
     public void SoundButtonEffect(){
 
-        if (sounfEffectsOn == PlayerPrefs.GetInt("soundEffects", 0))
+        if (soundFXon == PlayerPrefs.GetInt("soundEffects", 0))
         {
             FindObjectOfType<AudioManager>().Play("ButtonPressed");
         }

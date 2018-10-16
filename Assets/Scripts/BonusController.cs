@@ -14,33 +14,59 @@ public class BonusController : MonoBehaviour {
     Vector2 whereToSpawn;
     float nextSpawn = 0.0f;
 
-    //private void Start()
-    //{
-    //    if (meterController.speedUpTime == 10 )
-    //    {
-    //        StartCoroutine(StartHearts());
-    //    }
+    EnemyHeartStart heartStart = EnemyHeartStart.NoStart;
+    enum EnemyHeartStart { NoStart, Start, Started }
 
-    //    StartCoroutine(StartArrowDown());
-    //    StartCoroutine(StartArrowUp());
-    //}
+    EnemyArrowUpStart arrowUpStart = EnemyArrowUpStart.NoStart;
+    enum EnemyArrowUpStart { NoStart, Start, Started }
+
+    EnemyArrowDownStart arrowDownStart = EnemyArrowDownStart.NoStart;
+    enum EnemyArrowDownStart { NoStart, Start, Started }
+
+    Coroutine coroutine;
+
 
     private void Update()
     {
+        BonusObjects();
+    }
 
-        if (meterController.speedUpTime > 10)
+    void BonusObjects(){
+
+        if (meterController.speedUpTime > 30 && heartStart == EnemyHeartStart.NoStart)
         {
-            StartCoroutine(StartHearts());
-        }
-        if (meterController.speedUpTime > 10)
-        {
-            StartCoroutine(StartArrowDown());
-        }
-        if (meterController.speedUpTime > 10)
-        {
-            StartCoroutine(StartArrowUp());
+            heartStart = EnemyHeartStart.Start;
         }
 
+        if (meterController.speedUpTime > 10 && arrowUpStart == EnemyArrowUpStart.NoStart)
+        {
+            arrowUpStart = EnemyArrowUpStart.Start;
+
+        }
+        if (meterController.speedUpTime > 26 && arrowDownStart == EnemyArrowDownStart.NoStart)
+        {
+            arrowDownStart = EnemyArrowDownStart.Start;
+        }
+
+        if (heartStart == EnemyHeartStart.Start)
+        {
+            coroutine = StartCoroutine(StartHearts());
+            heartStart = EnemyHeartStart.Started;
+
+        }
+        if (arrowUpStart == EnemyArrowUpStart.Start)
+        {
+            coroutine = StartCoroutine(StartArrowUp());
+            arrowUpStart = EnemyArrowUpStart.Started;
+
+        }
+        if (arrowDownStart == EnemyArrowDownStart.Start)
+        {
+            coroutine = StartCoroutine(StartArrowDown());
+            arrowDownStart = EnemyArrowDownStart.Started;
+
+        }
+        
     }
 
 
@@ -56,7 +82,7 @@ public class BonusController : MonoBehaviour {
                 Instantiate(heart, whereToSpawn, Quaternion.identity);
             }
 
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(40.0f);
         }
 
     }

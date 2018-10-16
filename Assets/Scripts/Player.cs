@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     public float verticalSpeed;
     public Vector3 tempPosition;
 
-    public int sounfEffectsOn = 1;
+    public int soundEffectsOn = 1;
 
     private void Start()
     {
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
 
             Destroy(collision.gameObject);
 
-            if (sounfEffectsOn == PlayerPrefs.GetInt("soundEffects",0))
+            if (soundEffectsOn == PlayerPrefs.GetInt("soundEffects",0))
             {
                 FindObjectOfType<AudioManager>().Play("Life");
             }
@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
 
             Destroy(collision.gameObject);
 
-            if (sounfEffectsOn == PlayerPrefs.GetInt("soundEffects", 0)){
+            if (soundEffectsOn == PlayerPrefs.GetInt("soundEffects", 0)){
 
                 FindObjectOfType<AudioManager>().Play("Crash");
             }
