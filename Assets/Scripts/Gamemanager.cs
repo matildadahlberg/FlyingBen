@@ -17,6 +17,10 @@ public class Gamemanager : MonoBehaviour
     public GameObject balloon;
     public GameObject plane;
     public GameObject spaceship;
+    public GameObject background;
+
+    private Camera currentView;
+
 
     Coroutine coroutine;
 
@@ -35,28 +39,27 @@ public class Gamemanager : MonoBehaviour
     EnemyHeartStart heartStart = EnemyHeartStart.NoStart;
     enum EnemyHeartStart { NoStart, Start, Started }
 
-    // Update is called once per frame
+  
     void Update()
     {
         Enemies();
+
     }
 
     void Enemies()
     {
-
-        //int speedUpTime = (int)(Time.time * 2.5);
-
-        if (meterController.speedUpTime > 10 && balloonStart == EnemyBalloonStart.NoStart)
+        
+        if (meterController.speedUpTime > 5 && balloonStart == EnemyBalloonStart.NoStart)
         {
             balloonStart = EnemyBalloonStart.Start;
         }
        
-        if (meterController.speedUpTime > 50 && birdStart == EnemyBirdStart.NoStart)
+        if (meterController.speedUpTime > 30 && birdStart == EnemyBirdStart.NoStart)
         {
             birdStart = EnemyBirdStart.Start;
 
         }
-        if (meterController.speedUpTime > 90 && planeStart == EnemyPlaneStart.NoStart)
+        if (meterController.speedUpTime > 70 && planeStart == EnemyPlaneStart.NoStart)
         {
             planeStart = EnemyPlaneStart.Start;
         }
@@ -111,13 +114,15 @@ public class Gamemanager : MonoBehaviour
 
             if (Time.time > nextSpawn)
             {
+                
                 nextSpawn = Time.time + spawnRate;
                 randY = Random.Range(-4.60f, 3.80f);
                 whereToSpawn = new Vector2(transform.position.x, randY);
-                Instantiate(balloon, whereToSpawn, Quaternion.identity);
+                Instantiate(balloon, whereToSpawn, Quaternion.identity, background.transform);
+
             }
 
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(4f);
 
         }
 
@@ -133,10 +138,11 @@ public class Gamemanager : MonoBehaviour
                 nextSpawn = Time.time + spawnRate;
                 randY = Random.Range(-4.60f, 3.80f);
                 whereToSpawn = new Vector2(transform.position.x, randY);
-                Instantiate(bird, whereToSpawn, Quaternion.identity);
+                Instantiate(bird, whereToSpawn, Quaternion.identity, background.transform);
+
             }
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
 
         }
 
@@ -152,10 +158,10 @@ public class Gamemanager : MonoBehaviour
                 nextSpawn = Time.time + spawnRate;
                 randY = Random.Range(-4.60f, 3.80f);
                 whereToSpawn = new Vector2(transform.position.x, randY);
-                Instantiate(plane, whereToSpawn, Quaternion.identity);
+                Instantiate(plane, whereToSpawn, Quaternion.identity, background.transform);
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         }
 
     }
@@ -170,7 +176,7 @@ public class Gamemanager : MonoBehaviour
                 nextSpawn = Time.time + spawnRate;
                 randY = Random.Range(-4.60f, 3.80f);
                 whereToSpawn = new Vector2(transform.position.x, randY);
-                Instantiate(spaceship, whereToSpawn, Quaternion.identity);
+                Instantiate(spaceship, whereToSpawn, Quaternion.identity, background.transform);
             }
 
             yield return new WaitForSeconds(1f);

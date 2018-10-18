@@ -9,6 +9,7 @@ TagManager:
   - LifeTag
   - ArrowUp
   - ArrowDown
+  - Touch
   layers:
   - Default
   - TransparentFX

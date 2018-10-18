@@ -33,17 +33,17 @@ public class BonusController : MonoBehaviour {
 
     void BonusObjects(){
 
-        if (meterController.speedUpTime > 30 && heartStart == EnemyHeartStart.NoStart)
+        if (meterController.speedUpTime > 70 && heartStart == EnemyHeartStart.NoStart)
         {
             heartStart = EnemyHeartStart.Start;
         }
 
-        if (meterController.speedUpTime > 10 && arrowUpStart == EnemyArrowUpStart.NoStart)
+        if (meterController.speedUpTime > 20 && arrowUpStart == EnemyArrowUpStart.NoStart)
         {
             arrowUpStart = EnemyArrowUpStart.Start;
 
         }
-        if (meterController.speedUpTime > 26 && arrowDownStart == EnemyArrowDownStart.NoStart)
+        if (meterController.speedUpTime > 55 && arrowDownStart == EnemyArrowDownStart.NoStart)
         {
             arrowDownStart = EnemyArrowDownStart.Start;
         }

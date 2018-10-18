@@ -100,9 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 0.005
-  verticalSpeed: 0
-  amplitude: 0
-  tempPosition: {x: 0, y: 0, z: 0}
   direction: -1
 --- !u!212 &212170118886842262
 SpriteRenderer:
