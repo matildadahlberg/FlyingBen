@@ -54,16 +54,16 @@ public class Gamemanager : MonoBehaviour
             balloonStart = EnemyBalloonStart.Start;
         }
        
-        if (meterController.speedUpTime > 30 && birdStart == EnemyBirdStart.NoStart)
+        if (meterController.speedUpTime > 25 && birdStart == EnemyBirdStart.NoStart)
         {
             birdStart = EnemyBirdStart.Start;
 
         }
-        if (meterController.speedUpTime > 70 && planeStart == EnemyPlaneStart.NoStart)
+        if (meterController.speedUpTime > 60 && planeStart == EnemyPlaneStart.NoStart)
         {
             planeStart = EnemyPlaneStart.Start;
         }
-        if (meterController.speedUpTime > 150 && spaceshipStart == EnemySpaceshipStart.NoStart)
+        if (meterController.speedUpTime > 100 && spaceshipStart == EnemySpaceshipStart.NoStart)
         {
             spaceshipStart = EnemySpaceshipStart.Start;
         }
@@ -122,7 +122,7 @@ public class Gamemanager : MonoBehaviour
 
             }
 
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(2f);
 
         }
 
@@ -142,7 +142,7 @@ public class Gamemanager : MonoBehaviour
 
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
 
         }
 
@@ -161,7 +161,7 @@ public class Gamemanager : MonoBehaviour
                 Instantiate(plane, whereToSpawn, Quaternion.identity, background.transform);
             }
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.8f);
         }
 
     }
@@ -179,7 +179,7 @@ public class Gamemanager : MonoBehaviour
                 Instantiate(spaceship, whereToSpawn, Quaternion.identity, background.transform);
             }
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
 
         }
 

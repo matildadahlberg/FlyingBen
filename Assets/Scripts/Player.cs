@@ -34,7 +34,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-      //  crashEffect.GetComponent<ParticleSystem>().enableEmission = false;
+        //crashEffect.GetComponent<ParticleSystem>().enableEmission = false;
+        crashEffect.GetComponent<ParticleSystem>().Stop();
     }
 
     void Update()
@@ -151,7 +152,13 @@ public class Player : MonoBehaviour
 
                 //Gör en coroutine på partiklarna sätt till true i några sekunder och sen false
 
-                StartCrashEffect();
+               //crashEffect.GetComponent<ParticleSystem>().enableEmission = true;
+
+
+
+                crashEffect.GetComponent<ParticleSystem>().Play();
+
+                StopCrashEffect();
 
 
                 FindObjectOfType<AudioManager>().Play("Crash");
@@ -202,14 +209,13 @@ public class Player : MonoBehaviour
     }
 
 
-    IEnumerator StartCrashEffect()
+    IEnumerator StopCrashEffect()
     {
+        
 
-        crashEffect.GetComponent<ParticleSystem>().enableEmission = true;
+        yield return new WaitForSeconds(.4f);
 
-        yield return new WaitForSeconds(2f);
-
-        crashEffect.GetComponent<ParticleSystem>().enableEmission = false;
+        crashEffect.GetComponent<ParticleSystem>().Stop();
 
 
     }
