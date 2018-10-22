@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public MeterController meterController;
     public MainMenu mainMenu;
 
+    public Transform crashEffect;
+
 
     [SerializeField] float speed = 10F;
     [SerializeField] float padding = 1F;
@@ -32,13 +34,13 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        
+      //  crashEffect.GetComponent<ParticleSystem>().enableEmission = false;
     }
 
     void Update()
     {
-        Move();
-        //MoveWithKeys();
+        //Move();
+        MoveWithKeys();
         SetUpMoveBounderies();
 
     }
@@ -46,26 +48,30 @@ public class Player : MonoBehaviour
     void Move()
     {
 
-        if (Input.touchCount > 0) {
+        if (Input.touchCount > 0)
+        {
 
-            if (Input.GetTouch(0).phase == TouchPhase.Began) {
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            {
                 // if touch on player
                 Vector3 pos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
 
                 RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
 
-                if( hit.collider != null && hit.collider.tag == "Touch") {
-                    
+                if (hit.collider != null && hit.collider.tag == "Touch")
+                {
+
                     movable = true;
                 }
 
-                    
+
 
             }
 
 
 
-            if (Input.GetTouch(0).phase == TouchPhase.Moved  && movable){
+            if (Input.GetTouch(0).phase == TouchPhase.Moved && movable)
+            {
 
 
                 Touch touch = Input.GetTouch(0);
@@ -76,7 +82,8 @@ public class Player : MonoBehaviour
                 transform.position = (Vector3)pos;
             }
 
-            if (Input.GetTouch(0).phase == TouchPhase.Ended) {
+            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
                 movable = false;
             }
 
@@ -103,13 +110,13 @@ public class Player : MonoBehaviour
 
             Destroy(collision.gameObject);
 
-            if (soundEffectsOn != PlayerPrefs.GetInt("soundEffects",0))
+            if (soundEffectsOn != PlayerPrefs.GetInt("soundEffects", 0))
             {
                 FindObjectOfType<AudioManager>().Play("Life");
             }
 
-            
-           
+
+
 
         }
         else if (collision.gameObject.tag == "ArrowUp")
@@ -132,13 +139,20 @@ public class Player : MonoBehaviour
 
         }
 
-        else {
+        else
+        {
 
             lifeController.RemoveLife();
 
             Destroy(collision.gameObject);
 
-            if (soundEffectsOn != PlayerPrefs.GetInt("soundEffects", 0)){
+            if (soundEffectsOn != PlayerPrefs.GetInt("soundEffects", 0))
+            {
+
+                //Gör en coroutine på partiklarna sätt till true i några sekunder och sen false
+
+                StartCrashEffect();
+
 
                 FindObjectOfType<AudioManager>().Play("Crash");
             }
@@ -169,7 +183,7 @@ public class Player : MonoBehaviour
 
 
 
-            yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(5.0f);
 
         backgroundScroller.SpeedNeutral();
         meterController.speedUp /= 2;
@@ -180,10 +194,25 @@ public class Player : MonoBehaviour
         backgroundScroller.SpeedDown();
         meterController.speedUp -= 4;
 
-            yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(5.0f);
 
         backgroundScroller.SpeedNeutral();
         meterController.speedUp += 4;
 
     }
+
+
+    IEnumerator StartCrashEffect()
+    {
+
+        crashEffect.GetComponent<ParticleSystem>().enableEmission = true;
+
+        yield return new WaitForSeconds(2f);
+
+        crashEffect.GetComponent<ParticleSystem>().enableEmission = false;
+
+
+    }
+
+
 }
